@@ -1,0 +1,38 @@
+<h1>{{title}}</h1>
+<form method="POST" action="/projects/add">
+  <fieldset>
+    <label for="name" class="col-2">
+      Name:
+    </label>
+    <input name="name" id="name" required />
+  </fieldset>
+
+  <fieldset>
+    <label for="dueDate" class="col-2">
+      Due Date:
+    </label>
+    <input name="dueDate" id="dueDate" required type="date" />
+  </fieldset>
+
+  <fieldset>
+    <label for="course" class="col-2">
+      Course:
+    </label>
+    <select name="course" id="course" required>
+      {{#each courses}} <!-- Loop through courses to create the options -->
+        <option value="{{this._id}}">{{this.name}}</option>
+      {{/each}}
+    </select>
+  </fieldset>
+
+  {{!-- Status is optional, as it defaults to Pending --}}
+  <fieldset>
+    <label for="status" class="col-2">Status:</label>
+    <select name="status" id="status">
+      <option value="Pending">Pending</option>
+      <option value="Completed">Completed</option>
+    </select>
+  </fieldset>
+
+  <button class="offset-3 btn btn-primary">Save</button>
+</form>

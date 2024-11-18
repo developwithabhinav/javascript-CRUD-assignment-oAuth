@@ -1,0 +1,32 @@
+<h1>{{title}}</h1>
+
+{{!-- Add link to create a new course --}}
+{{#if user}}
+  <a href="/courses/add" class="btn btn-success">Add a New Task</a>
+{{/if}}
+
+{{!-- Display the list of courses --}}
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Task Name</th>
+      <th>Description</th>
+      <th>Due Date</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each courses}}
+      <tr>
+        <td>{{this.name}}</td>
+        <td>{{this.description}}</td>
+        <td>{{this.dueDate}}</td>
+        <td>
+          {{!-- Add action buttons (edit, delete) --}}
+          <a href="/courses/edit/{{this._id}}" class="btn btn-primary btn-sm">Edit</a>
+          <a href="/courses/delete/{{this._id}}" class="btn btn-danger btn-sm">Delete</a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

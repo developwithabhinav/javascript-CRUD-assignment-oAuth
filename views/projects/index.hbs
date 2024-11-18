@@ -1,0 +1,49 @@
+<h1>{{title}}</h1>
+
+{{!-- CRUD Functionality --}}
+{{!-- CREATE button --}}
+{{#if user}} <!-- Show the "Add a new project" link if the user is authenticated -->
+  <a href="/projects/add" class="btn btn-success">Add a New Task</a>
+{{/if}}
+
+{{!-- READ: Show Table to view all projects in DB --}}
+<table class="table table-striped table-hover mt-3">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Due Date</th>
+      <th>Task</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each dataset}} <!-- Loop through the projects data -->
+      <tr>
+        <td>{{this.name}}</td>
+        <td>{{toShortDate this.dueDate}}</td> <!-- Format the due date using a helper function -->
+        <td>{{this.course}}</td>
+        <td>
+          {{#if this.status}}
+            <span class="badge bg-success">{{this.status}}</span>
+          {{else}}
+            <span class="badge bg-warning">Pending</span>
+          {{/if}}
+        </td>
+        {{!-- UPDATE and DELETE buttons --}}
+        <td>
+          {{#if ../user}} <!-- Only show these actions if the user is authenticated -->
+            <a href="/projects/edit/{{this._id}}" class="btn btn-primary btn-sm">Edit</a>
+            <a href="/projects/delete/{{this._id}}" onclick="return confirmDeletion()" class="btn btn-danger btn-sm">Delete</a>
+          {{/if}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<script>
+  function confirmDeletion() {
+    return confirm("Are you sure you want to delete this project?");
+  }
+</script>

@@ -1,0 +1,28 @@
+<h1>{{title}}</h1>
+{{#if user}}
+  <a href="/projects/add">Add a new Task</a>
+{{/if}}
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Due Date</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each dataset}}
+      <tr>
+        <td>{{this.name}}</td>
+        <td>{{this.dueDate}}</td>
+        <td>{{this.status}}</td>
+        <td>
+          <a href="/projects/edit/{{this._id}}">Edit</a> |
+          <a href="/projects/delete/{{this._id}}">Delete</a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

@@ -1,0 +1,48 @@
+body {
+  padding: 40px;
+  font-family: 'Arial', sans-serif; /* Simpler and more modern font */
+  background-color: #f8f9fa; /* Light grey background for a clean look */
+  color: #343a40; /* Dark text for better readability */
+}
+
+a {
+  color: palevioletred; /* Bootstrap blue for links */
+  text-decoration: none; /* Remove underline */
+}
+
+a:hover {
+  color: #0056b3; /* Darker blue for hover effect */
+  text-decoration: underline; /* Underline on hover for better UX */
+}
+
+h1 {
+  font-size: 2.5rem; /* Larger font size for headings */
+  color: palevioletred; /* Blue color for the main title */
+  font-weight: 700; /* Bold for emphasis */
+}
+
+button {
+  background-color: #28a745; /* Green for action buttons */
+  color: white; /* White text for buttons */
+  border: none; 
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners */
+}
+
+button:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+.table {
+  border-radius: 8px; /* Rounded corners for tables */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f1f1f1; /* Light grey rows for better readability */
+}
+
+.table-hover tbody tr:hover {
+  background-color: #e9ecef; /* Light grey on row hover */
+}

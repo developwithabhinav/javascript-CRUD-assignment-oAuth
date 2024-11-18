@@ -1,0 +1,32 @@
+<h1>{{title}}</h1>
+<form method="POST">
+  <fieldset>
+    <label for="name">Task Name:</label>
+    <input name="name" id="name" value="{{task.name}}" required />
+  </fieldset>
+
+  <fieldset>
+    <label for="dueDate">Due Date:</label>
+    <input type="date" name="dueDate" id="dueDate" value="{{task.dueDate}}" required />
+  </fieldset>
+
+  <fieldset>
+    <label for="course">Task:</label>
+    <select name="course" id="course" required>
+      {{#each courses}}
+        <option value="{{this._id}}" {{#if selectedCourseId}}{{#if (eq this._id selectedCourseId)}}selected{{/if}}{{/if}}>{{this.name}}</option>
+      {{/each}}
+    </select>
+  </fieldset>
+
+  <fieldset>
+    <label for="status">Status:</label>
+    <select name="status" id="status">
+      <option value="Pending" {{#if selectedStatus}}{{#if (eq selectedStatus 'Pending')}}selected{{/if}}{{/if}}>Pending</option>
+      <option value="In Progress" {{#if selectedStatus}}{{#if (eq selectedStatus 'In Progress')}}selected{{/if}}{{/if}}>In Progress</option>
+      <option value="Completed" {{#if selectedStatus}}{{#if (eq selectedStatus 'Completed')}}selected{{/if}}{{/if}}>Completed</option>
+    </select>
+  </fieldset>
+
+  <button class="btn btn-primary">Save</button>
+</form>
